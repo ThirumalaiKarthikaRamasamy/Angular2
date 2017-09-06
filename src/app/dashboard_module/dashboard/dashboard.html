@@ -1,0 +1,195 @@
+
+<md-card class="hs">
+    <div>
+        <img src="../assets/images/ge.png" class="img-bgc"/>Seawolf
+        <div class="float-right"><i class="fa fa-bell-o"></i> Mayoor Rai, Customer Service Lead <i class="fa fa-cog"></i></div>
+    </div>
+</md-card>
+<md-sidenav-container class="example-sidenav-fab-container">
+    <md-sidenav #sidenav mode="side" opened="true">
+     
+      <div class="example-scrolling-content">
+        <md-card>My Events</md-card>
+        <md-card>
+            <div class="border-bottom">ESN, Customer Name, Dates</div>
+            <div>Sort by: Due Date</div>
+        </md-card>
+        
+        <md-card *ngFor="let outage of outageDetails" >
+                <div (click)="getOutageDetails()">
+                <div>{{outage.name}} <span class="float-right">☆</span></div>
+                <div>{{outage.Outage}}</div>
+                <div>{{outage.ESN}}</div>
+                <div>{{outage.ID}}</div>
+                <div>{{outage.Location}}</div>
+                </div>
+        </md-card>
+        
+      </div>
+    </md-sidenav>
+    <div *ngIf="middlePageContentDisplay" class="middle-bgrnd">
+    <div class="middle-page-style">
+        <h1 class="padding-left-20">{{outage.name}}</h1>
+        <div class="padding-left-20">
+            <table cellpadding="10">
+                <tr>
+                    <td>Location: {{outage.location}}</td>
+                    <td><span class="handsymbol" (click)="myModal.open();">Update Event</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Event ID: {{outage.eventId}}</td>
+                    <td>ESN: {{outage.ESN}}</td>
+                    <td>Outage Start Date: {{outage.outageStartDate}}</td>
+                </tr>
+                <tr>
+                    <td>Outage Type: {{outage.outageType}}</td> 
+                    <td>Field Services Scope: {{outage.fieldServiceScope}}</td>
+                    <td>Outage End Date: {{outage.outageEndDate}}</td>
+                </tr>
+                <tr>
+                    <td>Technology.: {{outage.technology}}</td>
+                    <td>Outage Status: {{outage.outageStatus}}</td>
+                    <td>Due Date: {{outage.dueDate}}</td>
+                    
+                </tr>
+            </table>
+        </div>
+        <div>
+            <md-card class="bgcolor-middle-content">
+                <div  class="border-bottom-height">
+                    <h3 class="padding-top-left">SCOPE</h3>
+                </div>
+                <div class="height-75">
+                    <table cellpadding="10" class="width-100">
+                        <tr>
+                            <td rowspan="3"><span>{{outage.sc.name}}</span>    {{outage.sc.description}}</td>
+                            <td>{{outage.sc.standardActivities}} Standard Activities</td>
+                        </tr>
+                        <tr>
+                            <td>{{outage.sc.nonStandardActivities}} Non-Standard Activities</td>
+                        </tr>
+                        <tr>
+                            <td>{{outage.sc.extraWork}} Extra Work</td>
+                        </tr>
+                    </table>
+                </div>
+            </md-card>
+            <md-card class="bgcolor-middle-content">
+                    <div class="border-bottom-height">
+                        <h3 class="padding-top-left">ESTIMATE</h3>
+                    </div>
+                    <div class="height-75">
+                        <table cellpadding="10" class="width-100">
+                            <tr>
+                                <td rowspan="3">${{outage.estimate.value}}  Total Cost</td>
+                                <td>${{outage.estimate.labor}}  Labor</td>
+                            </tr>
+                            <tr>
+                                <td>${{outage.estimate.tooling}}  Tooling</td>
+                            </tr>
+                            <tr>
+                                <td>${{outage.estimate.others}}   3rd-Party/Other</td>
+                            </tr>
+                        </table>
+                    </div>
+                </md-card>
+                <md-card class="bgcolor-middle-content">
+                        <div class="border-bottom-height">
+                            <h3 class="padding-top-left">ACTIVATE</h3>
+                        </div>
+                        <div  class="height-75">
+                            <table cellpadding="10" class="width-100">
+                                <tr>
+                                    <td rowspan="3">{{outage.active.name}}  {{outage.active.description}}</td>
+                                    <td>XYZ  {{outage.active.x}}</td>
+                                </tr>
+                                <tr>
+                                    <td>XYZ {{outage.active.xy}}</td>
+                                </tr>
+                                <tr>
+                                    <td>XYZ  {{outage.active.xyz}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </md-card>
+        </div>
+    </div>
+    <div class="bgcolor-width-float-summary">
+        <h1>SUMMARY</h1>
+        <table cellpadding="10" class="width-100">
+            <tr class="bgcolor-summary">
+                <td>SCOPE</td>
+                <td>7FA Major</td>
+            </tr>
+             <tr>
+                <td>Clean & Inspect:</td>
+                <td>Lorem ipsum</td>
+            </tr>
+            <tr>
+                <td>Disassemble:</td>
+                <td>Lorem ipsum</td>
+            </tr>
+            <tr>
+                <td>Reassembly:</td>
+                <td>Lorem ipsum</td>
+            </tr>
+            <tr>
+                <td>Start Up:</td>
+                <td>Lorem ipsum</td>
+            </tr>
+            <tr>
+                <td>Demobilize:</td>
+                <td>Lorem ipsum</td>
+            </tr>
+        </table>
+    </div>
+    </div>
+  </md-sidenav-container>
+  <modal #myModal class="myModal">
+    <modal-header >
+        <h2 class="modal-window-header">UPDATE EVENT DETAILS</h2>
+    </modal-header>
+    <modal-content>
+        <div>
+            <table cellpadding="10">
+                <tr>
+                    <td><span>Customer Name</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input style="border: 0px;border-bottom: 1px solid;" name="last" value="Tennessee Valley Authority" ngModel>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span>Technology</span></td>
+                </tr>
+                <tr>
+                    <td>
+                            <select style="border: 0px;border-bottom: 1px solid;">
+                                    <option value="Gas Turbine">Gas Turbine</option>
+                                    <option value="Steam Turbine">Steam Turbine</option>
+                            </select>
+                    </td>
+                </tr>
+                <tr><td>Outage Type</td></tr>
+                <tr>
+                        <td>
+                                <select style="border: 0px;border-bottom: 1px solid;">
+                                        <option value="Inspection">Inspection</option>
+                                        <option value="Permanent fault">Permanent fault</option>
+                                        <option value="Brownout ">Brownout </option>
+                                </select>
+                        </td>
+                    </tr>
+            </table>
+         
+        </div>
+    </modal-content>
+    <modal-footer>
+        <div class="modal-div-footer">
+            <button class="btn btn-primary">Update</button>
+            <button class="btn btn-primary" (click)="myModal.close()">Cancel</button>
+        </div>
+    </modal-footer>
+</modal>

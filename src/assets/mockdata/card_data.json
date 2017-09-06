@@ -1,0 +1,34 @@
+{
+	"name": "Tennessee Valley Authority",
+	"location": "Mississippi, USA",
+	"eventId": "Alpha-1109191",
+	"ESN": "270T859",
+	"outageStartDate": "3 Feb'18",
+	"outageType": "Major",
+	"fieldServiceScope": "TA & Labour",
+	"outageEndDate": "31 Mar'18",
+	"technology": "Gas Turbine",
+	"outageStatus": "Forcasted",
+	"dueDate": "1 Jan'18",
+	"sc": {
+		"name": "7FA Major Inspection",
+		"description": "Lorum ipsum",
+		"standardActivities": "32",
+		"nonStandardActivities": "4",
+		"extraWork": "1"
+	},
+	"estimate": {
+		"value": "1200000",
+		"labor": "800000",
+		"tooling": "300000",
+		"others": "100000"
+	},
+	"active": {
+		"name": "Lorum ipsum",
+		"description": "xyz Lorum ipsum",
+		"x": "Lorum ipsum",
+		"xy": "Lorum ipsum",
+		"xyz": "Lorum ipsum"
+	}
+
+}
